@@ -1,6 +1,9 @@
 import express, { Request, Response } from "express";
 import { ProductService } from "../../../services";
 import { success, error, verifyAuthorization } from "../utils";
+import { update } from "../../../services/Product";
+import { title } from "process";
+import { describe } from "node:test";
 
 const router = express.Router();
 
@@ -34,6 +37,44 @@ const getProduct = async (request: Request, response: Response) => {
   });
 };
 
+const putProduct = async (request: Request, response: Response) => {
+  const authorization = await verifyAuthorization(
+    request.headers.authorization,
+  );
+
+  if (authorization.err) {
+    return error(response, {
+      error: authorization.val.message,
+      statusCode: 401,
+    });
+  }
+
+  const id = request.params.id;
+  const title = request.params.title;
+  const description = request.params.description;
+  const price = parseInt(request.params.price);
+  const imageUrl = request.params.imageUrl;
+
+  const product = await ProductService.find(id);
+  if (product === null) {
+    return error(response, {
+      error: "Product not found.",
+      statusCode: 404,
+    })
+  };
+
+  const updated = await ProductService.update(id, title, description, price, imageUrl);{
+  };
+
+  return success(response, {
+    data: {
+      product: product,
+    },
+    statusCode: 200,
+  });
+
+  }
+
 const createProduct = async (request: Request, response: Response) => {
   const authorization = await verifyAuthorization(
     request.headers.authorization,
@@ -63,5 +104,6 @@ const createProduct = async (request: Request, response: Response) => {
 router.get("/", getProducts);
 router.get("/:id", getProduct);
 router.post("/", createProduct);
+router.put("/:id", putProduct);
 
 export default router;
