@@ -6,7 +6,7 @@
 
   &__products {
     display: flex;
-    flex-direction: column;
+    flex-direction: grid;
     flex-wrap: wrap;
 
     a {
