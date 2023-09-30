@@ -1,5 +1,6 @@
 .home-page {
   &__title {
+    font-family: sans-serif;
     color: red;
   }
 
@@ -11,5 +12,6 @@
       text-decoration: none;
       color: inherit;
     }
+
   }
 }
