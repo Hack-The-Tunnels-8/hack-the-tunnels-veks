@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useAccountContext } from "../../context";
 import "./Navbar.style.scss";
+import logo from "./logo.jpg";
 
 function Navbar() {
   const { loggedIn, logout } = useAccountContext();
@@ -10,7 +11,9 @@ function Navbar() {
   return (
     <div className="navbar">
       <div className="navbar__logo">
-        <Link to="/">Store Logo</Link>
+        <Link to="/">
+          <img src ={logo} alt = "VEKS Logo" height={"75%"} width={"50%"}  />;
+        </Link>
       </div>
       <div className="navbar__account">
         {loggedIn() === false ? (
