@@ -9,7 +9,7 @@ function Admin() {
   return (
     <Page>
       <div className="admin-page">
-        <h1>Admin</h1>
+        <h1>Admin Page</h1>
         {loggedIn() === false ? (
           <div>Login to access admin</div>
         ) : (
