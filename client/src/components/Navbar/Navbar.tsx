@@ -12,17 +12,17 @@ function Navbar() {
     <div className="navbar">
       <div className="navbar__logo">
         <Link to="/">
-          <img src ={logo} alt = "VEKS Logo" height={"75%"} width={"50%"}  />;
+          <img src ={logo} alt = "VEKS Logo" height={"40%"} width={"15%"}  />
         </Link>
       </div>
       <div className="navbar__account">
         {loggedIn() === false ? (
           <>
-            <button onClick={() => navigate("/sign-up")}>Sign Up</button>
-            <button onClick={() => navigate("/login")}>Login</button>
+            <button id="b" onClick={() => navigate("/sign-up")}>Sign Up</button>
+            <button id="b" onClick={() => navigate("/login")}>Login</button>
           </>
         ) : (
-          <button onClick={() => logout()}>Logout</button>
+          <button id="b" onClick={() => logout()}>Logout</button>
         )}
       </div>
     </div>
