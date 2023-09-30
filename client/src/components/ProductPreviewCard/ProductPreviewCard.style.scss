@@ -1,15 +1,28 @@
 .product-preview-card {
+
+
   &__title {
     font-style: bold;
     color: green;
+    font-family:'Times New Roman', Times, serif;
+    animation-duration: 5s;
+    animation-name: Not_Found;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
   }
 
   &__description {
-    color: blue;
+    color: purple;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
   }
 
   &__image {
     width: 10rem;
-    
   }
+}
+
+@keyframes Not_Found {
+  from {background-color: lightgreen;}
+  to {background-color: pink;} 
 }
