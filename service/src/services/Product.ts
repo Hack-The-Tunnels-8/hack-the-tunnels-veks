@@ -45,7 +45,7 @@ export const update = async (id: string,
   title: string,
   description: string,
   price: number,
-  imageUrl: string = "https://i.imgur.com/EyoQOjC.jpg"
+  imageUrl: string
   ) => {
     const update =  prisma.product.update({
       where: { id: parseInt(id) },

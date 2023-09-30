@@ -58,7 +58,7 @@ const putProduct = async (request: Request, response: Response) => {
   const product = await ProductService.find(id);
   if (product === null) {
     return error(response, {
-      error: "Product not found.",
+      error: "Product could not found.",
       statusCode: 404,
     })
   };
